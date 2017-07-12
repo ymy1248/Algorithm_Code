@@ -1,44 +1,27 @@
-c class Solution {
-    public String longestPalindrome(String s) {
-        if(s.length() == 0 || s.length() == 1){
-            return s;
-        }
-        int iBest = 1;
-        int maxLen = 1;
-        int even = 0;
-        int odd = 1;
-        
-        for(int i = 1; i < s.length(); i++){
-            if(i - even - 1< 0 || s.charAt(i) != s.charAt(i-even-1)){
-                even = 0;
-            }
-            try{
-                if(s.charAt(i) == s.charAt(i-even-1)){
-                    even += 2;
-                    if(maxLen < even){
-                        iBest = i;
-                        maxLen = even;
-                    }
-                }
-            }
-            catch (Exception e){
-            }
-   
-            if(i - odd - 1 < 0 || s.charAt(i) != s.charAt(i-odd-1)){
-                odd = 1;
-            }
-            try{
-                if(s.charAt(i) == s.charAt(i-odd-1)){
-                    odd += 2;
-                    if(maxLen < odd){
-                        iBest = i;
-                        maxLen = odd;
-                    }
-                }
-            }
-            catch (Exception e){
-            }
-        }
-        return s.substring(iBest-maxLen+1, iBest + 1);
+// I don't write this answer, I have the same idea with this answer. But the performance is slow.
+
+public class Solution {
+private int lo, maxLen;
+
+public String longestPalindrome(String s) {
+	int len = s.length();
+	if (len < 2)
+		return s;
+	
+    for (int i = 0; i < len-1; i++) {
+     	extendPalindrome(s, i, i);  //assume odd length, try to extend Palindrome as possible
+     	extendPalindrome(s, i, i+1); //assume even length.
     }
+    return s.substring(lo, lo + maxLen);
 }
+
+private void extendPalindrome(String s, int j, int k) {
+	while (j >= 0 && k < s.length() && s.charAt(j) == s.charAt(k)) {
+		j--;
+		k++;
+	}
+	if (maxLen < k - j - 1) {
+		lo = j + 1;
+		maxLen = k - j - 1;
+	}
+}}
