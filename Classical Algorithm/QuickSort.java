@@ -1,6 +1,6 @@
 package ymy1248.alg;
 
-import java.util.*;
+import ymy1248.sup.Show;
 
 public class QuickSort{
     public static void sort(Comparable[] comps){
@@ -38,6 +38,6 @@ public class QuickSort{
     public static void main(String[] args){
        Integer[] nums = {3,2,4,4,5,215,321,5,21,632,16,43,3};
        QuickSort.sort(nums);
-       System.out.println(Arrays.toString(nums));
+       Show.showArray(nums);
     }
 }

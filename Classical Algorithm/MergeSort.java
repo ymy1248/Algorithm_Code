@@ -1,6 +1,6 @@
 package ymy1248.alg;
 
-import java.util.*;
+import ymy1248.sup.*;
 
 public class MergeSort{
     public static void sort(Comparable[] comps){
@@ -38,9 +38,9 @@ public class MergeSort{
     public static void main(String[] args) {
         String[] ss = {"2", "1", "4", "43", "90", "21", "-12", "-23"};
         MergeSort.sort(ss);
-        System.out.println(Arrays.toString(ss));
+        Show.showArray(ss);
         Integer[] nums = {2,41,-43,24,13,14,4,42,1,-32};
         MergeSort.sort(nums);
-        System.out.println(Arrays.toString(nums));
+        Show.showArray(nums);
     }
 }
