@@ -28,7 +28,21 @@ public class Test {
         System.out.println("PostOrder:");
         Show.bst(bst, 1);
     }
+
+    private static void testBSTDelete() {
+        BST<Integer, String> bst = new BST<>();
+
+        for (int i = 0, j = 0; i < 10; i++) {
+            j--;
+            bst.insert(i, "val: " + i);
+            bst.insert(j, "val: " + j);
+        }
+
+        bst.delete(0);
+        Show.bst(bst, 0);
+    }
+
     public static void main(String[] args) {
-        testShowBST();
+        testBSTDelete();
     }
 }
