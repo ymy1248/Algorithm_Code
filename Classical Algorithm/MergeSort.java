@@ -1,7 +1,5 @@
 package ymy1248.alg;
 
-import ymy1248.sup.*;
-
 public class MergeSort{
     public static void sort(Comparable[] comps){
         Comparable[] regs = new Comparable[comps.length];
@@ -35,12 +33,4 @@ public class MergeSort{
         }
     }
 
-    public static void main(String[] args) {
-        String[] ss = {"2", "1", "4", "43", "90", "21", "-12", "-23"};
-        MergeSort.sort(ss);
-        Show.showArray(ss);
-        Integer[] nums = {2,41,-43,24,13,14,4,42,1,-32};
-        MergeSort.sort(nums);
-        Show.showArray(nums);
-    }
 }

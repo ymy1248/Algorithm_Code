@@ -1,7 +1,5 @@
 package ymy1248.alg;
 
-import ymy1248.sup.Show;
-
 public class QuickSort{
     public static void sort(Comparable[] comps){
         sort(comps, 0, comps.length - 1);
@@ -34,10 +32,5 @@ public class QuickSort{
         Comparable reg = comps[i];
         comps[i] = comps[j];
         comps[j] = reg;
-    }
-    public static void main(String[] args){
-       Integer[] nums = {3,2,4,4,5,215,321,5,21,632,16,43,3};
-       QuickSort.sort(nums);
-       Show.showArray(nums);
     }
 }
