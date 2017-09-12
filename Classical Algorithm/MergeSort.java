@@ -1,5 +1,6 @@
 package ymy1248.alg;
 
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class MergeSort{
     public static void sort(Comparable[] comps){
         Comparable[] regs = new Comparable[comps.length];

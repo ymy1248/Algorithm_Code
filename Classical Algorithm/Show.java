@@ -23,11 +23,13 @@ public class Show {
      * mode equals 0: inorder
      * mode greater than 0: postorder
      */
+    @SuppressWarnings("rawtypes")
     public static void bst(BST b, int mode) {
         bst(b.root, mode);
         System.out.println();
     }
 
+    @SuppressWarnings("rawtypes")
     private static void bst(BSTNode node, int mode) {
         if (node == null){
             return;

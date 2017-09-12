@@ -1,5 +1,6 @@
 package ymy1248.alg;
 
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class QuickSort{
     public static void sort(Comparable[] comps){
         sort(comps, 0, comps.length - 1);
