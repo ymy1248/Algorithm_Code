@@ -10,7 +10,7 @@ public class Show {
         }
         System.out.println(array[array.length - 1] + "]");
     }
-
+    
     public static void array(Object[][] array){
         for (Object[] subArray: array) {
             array(subArray);
@@ -25,29 +25,10 @@ public class Show {
      */
     @SuppressWarnings("rawtypes")
     public static void bst(BST b, int mode) {
-        bst(b.root, mode);
+        System.out.println(b.toString(mode));
         System.out.println();
     }
 
-    @SuppressWarnings("rawtypes")
-    private static void bst(BSTNode node, int mode) {
-        if (node == null){
-            return;
-        }
-        if (mode == 0) {
-            bst(node.left, mode);
-            System.out.print(node.key + " ");
-            bst(node.right, mode);
-        } else if (mode < 0) {
-            System.out.print(node.key + " ");
-            bst(node.left, mode);
-            bst(node.right, mode);
-        } else {
-            bst(node.left, mode);
-            bst(node.right, mode);
-            System.out.print(node.key + " ");
-        }
-    }
 
     @SuppressWarnings("rawtypes")
     public static void linkedList(LinkedList list) {

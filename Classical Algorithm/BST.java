@@ -1,7 +1,19 @@
 package ymy1248.datastructure;
 
 public class BST <K extends Comparable<K>, V>{
-    public BSTNode<K, V> root;
+    private class BSTNode {
+        public K key;
+        public V val;
+        public BSTNode left;
+        public BSTNode right;
+
+        public BSTNode(K key, V val) {
+            this.key = key;
+            this.val = val;
+        }
+    }
+
+    public BSTNode root;
 
     public BST(){
     }
@@ -12,23 +24,23 @@ public class BST <K extends Comparable<K>, V>{
     
     public void insert(K key, V val) {
         if (root == null) {
-            root = new BSTNode<>(key, val);
+            root = new BSTNode(key, val);
         } else {
             insert(root, key, val);
         }
     }
 
-    private void insert(BSTNode<K, V> node, K key, V val) {
+    private void insert(BSTNode node, K key, V val) {
         while (node != null) {
             if (key.compareTo(node.key) < 0) {
                 if (node.left == null) {
-                    node.left = new BSTNode<>(key, val);
+                    node.left = new BSTNode(key, val);
                     return;
                 }
                 node = node.left;
             } else if (key.compareTo(node.key) > 0) {
                 if (node.right == null) {
-                    node.right = new BSTNode<>(key, val);
+                    node.right = new BSTNode(key, val);
                     return;
                 }
                 node = node.right;
@@ -37,7 +49,7 @@ public class BST <K extends Comparable<K>, V>{
                 return;
             }
        }
-       node = new BSTNode<>(key, val);
+       node = new BSTNode(key, val);
     }
 
     public boolean delete(K key) {
@@ -49,7 +61,7 @@ public class BST <K extends Comparable<K>, V>{
         }
     }
 
-    private BSTNode<K, V> delete(BSTNode<K, V> node, K key) {
+    private BSTNode delete(BSTNode node, K key) {
         if (node == null) {
             return null;
         }
@@ -61,7 +73,7 @@ public class BST <K extends Comparable<K>, V>{
             if (node.left == null && node.right == null) {
                 return null;
             } else if (node.left != null && node.right != null) {
-                BSTNode<K, V> minNode =  min(node.right);
+                BSTNode minNode =  min(node.right);
                 node.right = delete(node.right, minNode.key);
                 minNode.left = node.left;
                 minNode.right = node.right;
@@ -77,7 +89,7 @@ public class BST <K extends Comparable<K>, V>{
         return min(root).val;
     }
 
-    private BSTNode<K, V> min(BSTNode<K, V> node) {
+    private BSTNode min(BSTNode node) {
         while (node.left != null) {
             node = node.left;
         }
@@ -92,7 +104,7 @@ public class BST <K extends Comparable<K>, V>{
         return get(root, key);
     }
 
-    private V get(BSTNode<K, V> node, K key) {
+    private V get(BSTNode node, K key) {
         if (node == null) {
             return null;
         }
@@ -106,4 +118,33 @@ public class BST <K extends Comparable<K>, V>{
         }
     }
 
+    @Override
+    public String toString() {
+        return toString(0);
+    }
+
+    public String toString(int mode) {
+        StringBuilder sb = new StringBuilder();
+        toString(this.root, mode, sb);
+        return sb.toString();
+    }
+
+    private void toString(BSTNode node, int mode, StringBuilder sb) {
+        if (node == null){
+            return;
+        }
+        if (mode == 0) {
+            toString(node.left, mode, sb);
+            sb.append(node.key + " ");
+            toString(node.right, mode, sb);
+        } else if (mode < 0) {
+            System.out.print(node.key + " ");
+            toString(node.left, mode, sb);
+            toString(node.right, mode, sb);
+        } else {
+            toString(node.left, mode, sb);
+            toString(node.right, mode, sb);
+            sb.append(node.key + " ");
+        }
+    }
 }

@@ -56,7 +56,8 @@ public class LinkedList<V> {
         StringBuilder str = new StringBuilder();
 
         while (p != null) {
-            str.append(p.val);
+            str.append(p.val + " ");
+            p = p.next;
         }
 
         return str.toString();

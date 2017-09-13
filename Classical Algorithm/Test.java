@@ -43,17 +43,25 @@ public class Test {
     }
 
     private static void testLinkedList() {
-        LinkedList<String> list = new LinkedList<>();
+        LinkedList<Integer> list = new LinkedList<>();
 
         for (int i = 0; i < 10; i++) {
             list.add(i);
         }
 
+        System.out.println("insert 0 - 9 to linkedlist:");
         Show.linkedList(list);
+
+        list.delete();
+        list.delete();
+        list.delete();
+        System.out.println("delete 3 elements");
+        Show.linkedList(list);
+
     }
 
 
     public static void main(String[] args) {
-        testBSTDelete();
+        testShowBST();
     }
 }
