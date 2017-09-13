@@ -42,6 +42,17 @@ public class Test {
         Show.bst(bst, 0);
     }
 
+    private static void testLinkedList() {
+        LinkedList<String> list = new LinkedList<>();
+
+        for (int i = 0; i < 10; i++) {
+            list.add(i);
+        }
+
+        Show.linkedList(list);
+    }
+
+
     public static void main(String[] args) {
         testBSTDelete();
     }

@@ -49,4 +49,16 @@ public class LinkedList<V> {
     public boolean isEmpty() {
         return size == 0;
     }
+
+    @Override
+    public String toString() {
+        Node p = dummy.next;
+        StringBuilder str = new StringBuilder();
+
+        while (p != null) {
+            str.append(p.val);
+        }
+
+        return str.toString();
+    }
 }

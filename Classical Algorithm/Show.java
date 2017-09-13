@@ -48,4 +48,9 @@ public class Show {
             System.out.print(node.key + " ");
         }
     }
+
+    @SuppressWarnings("rawtypes")
+    public static void linkedList(LinkedList list) {
+        System.out.println(list);
+    }
 }
