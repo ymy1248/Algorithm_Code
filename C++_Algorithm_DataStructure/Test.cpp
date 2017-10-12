@@ -7,6 +7,13 @@ void Test::testShow1DVector() {
     Show::vector_(a);
 }
 
+void Test::testQuickSort() {
+    vector<int> a {5,42,51,5,2,1,6,32,64,32,2};
+    Show::vector_(a);
+    Sort::quickSort(a);
+    Show::vector_(a); 
+}
+
 int main () {
-    Test::testShow1DVector();
+    Test::testQuickSort();
 }
