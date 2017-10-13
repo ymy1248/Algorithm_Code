@@ -7,7 +7,7 @@ Main.o: Main.cpp
 Sort.o: Sort.h Sort.cpp
 	g++ -std=c++14 -c Sort.cpp
 
-UI.o: UI.h UI.cpp
+UI.o: UI.h UI.cpp consts.h
 	g++ -std=c++14 -c UI.cpp
 
 clean:
