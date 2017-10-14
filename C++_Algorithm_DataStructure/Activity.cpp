@@ -1,13 +1,7 @@
 #include "Activity.h"
 
-Activity::Activity(vector<const char *> & content)
-:_content(content) {
-    clear();
-    this->gotoXY(1, 1);
-    for (size_t i = 0; i < _content.size(); ++i) {
-        cout << _content.size() << endl;
-    }
-}
+Activity::Activity(const vector<const char *> & content)
+:_content(content) {}
 
 Cmd Activity::getCmd() const {
     size_t sel = 0;
@@ -46,10 +40,13 @@ Cmd Activity::getCmd() const {
                 break;
             case 13:
                 // ascii for enter
+                system("stty cooked");
                 return static_cast<Cmd>(sel);
                 break;
             case ':':
                 // into command mode
+                // TODO
+                cout << "TODO" << endl;
                 break;
             default:
                 cout << "Unknown" << endl;
@@ -57,4 +54,13 @@ Cmd Activity::getCmd() const {
         }
     }
     return static_cast<Cmd>(sel);
+}
+
+void Activity::showView() {
+    clear();
+    gotoXY(1, 1);
+    for (size_t i = 0; i < _content.size(); ++i) {
+        cout << _content[i] << endl;
+    }
+    gotoXY(1, 1);
 }

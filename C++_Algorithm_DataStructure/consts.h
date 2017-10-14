@@ -16,22 +16,33 @@ const vector<const char*> OUTLINE {
 };
 
 const vector<const char*> ALG {
-    "0) Sorting",
-    "1) Graph",
+    "0) GO BACK",
+    "1) Sorting",
+    "2) Graph",
 };
 
 const vector<const char*> DS {
-    "0) Linked List",
-    "1) Queue",
-    "2) Stack",
-    "3) Binary Search Tree",
-    "4) Read Black Tree",
-    "5) Hash Map",
-    "6) Hash Set",
+    "0) GO BACK",
+    "1) Linked List",
+    "2) Queue",
+    "3) Stack",
+    "4) Binary Search Tree",
+    "5) Read Black Tree",
+    "6) Hash Map",
+    "7) Hash Set",
 };
 
 const static char *MOVE = "Use hijk to move the cursor";
 
+struct RunInput {
+};
+
+struct RunOutput {
+    bool exit;
+};
+
+struct ActInput{
+};
 
 enum OutLine {
     ALGORITHM,
