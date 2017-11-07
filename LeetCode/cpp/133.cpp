@@ -1,41 +1,29 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
 class Solution {
 public:
-    vector<vector<int>> pathSum(TreeNode* root, int sum) {
-        vector<int> path;
-        vector<vector<int>> ans;
-        if (root == NULL) {
-            return ans;
+    UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
+        if (node == NULL) {
+            return NULL;
         }
-        search(ans, path, root, sum);
-        return ans;
+        unordered_map<UndirectedGraphNode *, UndirectedGraphNode *> _map;
+        UndirectedGraphNode *dummy = new UndirectedGraphNode(0);
+        dummy->neighbors.push_back(clone(node, _map));
+        return dummy->neighbors[0];
     }
 
-private:
-    void search(vector<vector<int>> &ans, vector<int> &path, TreeNode* node, int sum) {
-        path.push_back(node->val);
-        if (node->left == NULL && node->right == NULL) {
-            if (sum == node->val) {
-                ans.push_back(path);
-            } else {
-                return;
+    UndirectedGraphNode * clone(UndirectedGraphNode *node,
+            unordered_map<UndirectedGraphNode *, UndirectedGraphNode *> &_map) {
+        auto it = _map.find(node);
+        if (it != _map.end()) {
+            return it->second;
+        } else {
+            UndirectedGraphNode *p = new UndirectedGraphNode(node->label);
+            _map[node] = p;
+            for (size_t i = 0; i < node->neighbors.size(); ++i) {
+                UndirectedGraphNode *reg = clone(node->neighbors[i], _map);
+                p->neighbors.push_back(reg);
             }
-        }
-        if (node->left != NULL) {
-            vector<int> leftPath = path;
-            search(ans, leftPath, node->left, sum - node->val);
-        }
-        if (node->right != NULL) {
-            search(ans, path, node->right, sum - node->val);
+            return p;
         }
     }
-    
 };
+
