@@ -7,7 +7,6 @@ Cmd Activity::getCmd() const {
     size_t sel = 0;
     system("stty raw");
     #if DEBUG 
-    cout << "cmd: " << cmd << endl;
     #endif
 
     while (true) {

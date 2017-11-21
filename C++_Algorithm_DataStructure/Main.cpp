@@ -42,6 +42,7 @@ public:
                 RunOutput out = { false };
                 return out;
             }
+
             default:
                 // TODO
                 cout << "TODO" << endl;
@@ -85,4 +86,3 @@ int main() {
     OutLineAct outLineAct;
     outLineAct.run();
 }
-

@@ -14,6 +14,35 @@ void Test::testQuickSort() {
     Show::vector_(a); 
 }
 
+void Test::testLinkedList() {
+    LinkedList<int> list;
+    list.add(0);
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    list.add(4);
+    list.add(5);
+    list.add(6);
+    list.add(7);
+    Show::linkedList(list);
+    cout << "contains 3: " << list.contains(3) << endl;
+    cout << "contains 100: " << list.contains(100) << endl;
+    list.clear();
+    list.add(4);
+    list.add(6);
+    list.show();
+    list.add(8).add(1);
+    list.show();
+    list.del();
+    list.show();
+    list.add(10);
+    list.del(8);
+    list.show();
+    cout << list;
+}
+
+
 int main () {
-    Test::testQuickSort();
+    Test::testLinkedList();
+    return 0;
 }

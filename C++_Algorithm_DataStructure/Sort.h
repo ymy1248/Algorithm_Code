@@ -2,11 +2,12 @@
  * @author: ymy1248
  */
 #include <vector>
+#include "consts.h"
 
 using namespace std;
 
 namespace ymy1248 {
-class Sort{
+class Sort {
 public:
     template <typename T>
     static void quickSort(vector<T> &arr) {

@@ -5,7 +5,7 @@
 #include <string>
 #include <iostream>
 
-#define DEBUG 0
+#define DEBUG 1 
 #define MAX_SEL 15
 
 using namespace std;

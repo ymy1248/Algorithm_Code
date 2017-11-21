@@ -1,0 +1,166 @@
+\documentclass[a4paper,10pt]{article}
+
+%A Few Useful Packages
+\usepackage{marvosym}
+\usepackage{fontspec} 					%for loading fonts
+\usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+%FONTS
+\defaultfontfeatures{Mapping=tex-text}
+%\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+%%% modified for Karol Kozioł for ShareLaTeX use
+\setmainfont[
+SmallCapsFont = Fontin-SmallCaps.otf,
+BoldFont = Fontin-Bold.otf,
+ItalicFont = Fontin-Italic.otf
+]
+{Fontin.otf}
+%%%
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST [**not part of a CV**]---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+%--------------------BEGIN DOCUMENT----------------------
+\begin{document}
+
+%WATERMARK TEST [**not part of a CV**]---------------
+%\font\wm=''Baskerville:color=787878'' at 8pt
+%\font\wmweb=''Baskerville:color=FF1493'' at 8pt
+%{\wm 
+%	\begin{textblock}{1}(0,0)
+%		\rotatebox{-90}{\parbox{500mm}{
+%			Typeset by Alessandro Plasmati with \XeTeX\  \today\ for 
+%			{\wmweb \href{http://www.aleplasmati.comuv.com}{aleplasmati.comuv.com}}
+%		}
+%	}
+%	\end{textblock}
+%}
+
+\pagestyle{empty} % non-numbered pages
+
+\font\fb=''[cmr10]'' %for use with \LaTeX command
+
+%--------------------TITLE-------------
+\par{\centering
+		{\Huge Meng-Yuan Ye
+	}\bigskip\par}
+
+%--------------------SECTIONS-----------------------------------
+%Section: Personal Data
+\section{Personal Information}
+
+\begin{tabular}{rl}
+    \textsc{Permanent Address:} & No.756, Fengmei Road, Putian City, Fujian Province, China \\
+    \textsc{Phone:}     & (+86) 158-6001-5593 (+886) 905-265-833 \\
+    \textsc{email:}     & \href{mailto:r04921094@ntu.edu.tw}{r04921094@ntu.edu.tw}
+\end{tabular}
+
+%Section: Education
+\section{Education}
+\begin{tabular}{r|p{10.3cm}}
+ \textsc{Sept 2015 - now} & Master of Science expected in \textsc{Jan 2018}\\
+& \textsc{Electrical Engineering}, \textbf{National Taiwan University}\\
+&\normalsize \textsc{Gpa}: 4.0/4.3\href{run:graduate school transcript.pdf}{\hfill | \footnotesize Detailed List of Exams}\\\multicolumn{2}{c}{} \\
+
+\textsc{Sept 2011 - Jun 2015} & Bachelor of Science\\
+& \textsc{Electrical Engineering}, \textbf{Tunghai University}\\
+&\normalsize \textsc{Gpa}: 3.65/4.0\href{run:colledge transcript.pdf}{\hfill| \footnotesize Detailed List of Exams}\\
+\end{tabular}
+
+ 
+ %Section: Project Experience at the top
+\section{Projects}
+\begin{tabular}{r|p{10.3cm}}
+
+\textsc{Apr 2017 - Jun 2017} & \textsc{Pump it Up: Data Mining the Water Table}\\
+ &\emph{Machine Learning Class Final Project}\\
+&\footnotesize{Implemented stacking model, which combines random forests with xgb to predict the operating condition of all water point pumps. Achieved 23/3054 global rank at that time.}\\
+\multicolumn{2}{c}{} \\
+
+\textsc{Apr 2017 - May 2017} & \textsc{Matrix Factorization on Recommendation System}\\
+&\emph{Machine Learning Lab 6}\\
+&\footnotesize{Implemented matrix factorization deep learning model in keras. In this model, we add implicate feedback to solve cold start problem.}\\
+ \multicolumn{2}{c}{} \\
+
+  \textsc{Dec 2016 - Jan 2017} & \textsc{B+ tree for database} \\
+ &\emph{Database Class final project}\\
+ &\footnotesize{In page size = 512 bytes environment, implemented B+ tree basic function in C++, including slotted page structure for storing data.}\\\multicolumn{2}{c}{} \\
+ 
+ \textsc{Mar 2016 - Jan 2017} & Academic Project in \textsc{Institute for Information Industry}, Taiwan \\
+ &\emph{System Designer}\\
+ &\footnotesize{IoT Traffic Classification: Establishing Machine Learning Algorithm to determine MTC(Machine Type Communication) devices emergency state through packet statics behavior in LTE MTC gateway.}\\\multicolumn{2}{c}{} \\
+ 
+\textsc{Dec 2015 - Feb 2016} & Industry-Academy Cooperation with \textsc{Moremote Inc.}\\
+ &\emph{System Designer}\\
+ &\footnotesize{Route Plan Based on Google Calendar: In Android System, built a application which can suggest the suitable route for user based on user google calendar event location}\\\multicolumn{2}{c}{} \\
+
+\textsc{Sept 2015 - Feb 2016} & Industry-Academy Cooperation with \textsc{Moremote Inc.}\\
+ &\emph{Research and Development}\\
+ &\footnotesize{WebRTC Research: In Android System, built the real-time communication app which can communicate with web page using WebRTC library.}\\\multicolumn{2}{c}{} \\
+ 
+\end{tabular}
+
+
+\section{Skills}
+\begin{tabular}{rl}
+Computer skills:& C/C++, Java, python, Android Development, Verilog, {\fb\LaTeX}\\
+Language skills:& \textsc{IELTS:} 6.5, Chinese\\
+\end{tabular}
+
+
+\section{Publications}
+\begin{tabular}{r|p{10.3cm}}
+
+ \textsc{Sept 2014 - Feb 2014} & \emph{Secure Power Management Scheme for WSN}\href{run:Paper-Secure Power Management Scheme for WSN.pdf}{\hspace{63pt}| \footnotesize Full Paper}\\
+  &\emph{ACM CSS 2015}\\
+ &\footnotesize{In this paper, we proposed a secure energy consumption management scheme, named Secure Power Management (SPM for short) to deal with the energy problem of a WSN and prolong operating time of its sensor nodes as well as coordinators.}\\\multicolumn{2}{c}{} \\
+ 
+ \textsc{Feb 2014 - Sept 2014} & \emph{Attack-Resistant Power Management Scheme for wireless Sensor Network}\href{run:Paper-Attack-Resistant Power Management Scheme for wireless Sensor Network.pdf}{\hspace{232pt}| \footnotesize Full Paper}\\
+  &\emph{ARIS 2015}\\
+ &\footnotesize{Attack-Resistant Power
+Management (A-RPM for short) scheme is proposed for WSN (Wireless Sensor networks) to deal with the energy problem and prolong the operating time of sensor nodes as well as coordinators.}\\\multicolumn{2}{c}{} \\
+ 
+\textsc{Feb 2013 - Sept 2013} & \emph{High-efficient Multi-Key Exchange Protocol based on Three-party Authentication}\href{run:Paper-High-efficient Multi-Key Exchange Protocol based on Three-party Authentication.pdf.pdf}{\hspace{202pt}| \footnotesize Full Paper}\\
+ &\emph{IMIS-2014}\\
+&\footnotesize{Three-party authenticated key exchange protocol is designed for securing the communication between two
+users with the help of a trusted server.}\\\multicolumn{2}{c}{} \\
+ 
+\end{tabular}
+ 
+\section{Extracurricular Activities}
+\begin{tabular}{rll}
+
+\textsc{Fall 2012 - Fall 2013} & \emph{Vice President} & \textsc{Mainland China Students Friendship}\\
+
+\textsc{Fall 2013 - Spring 2014} & \emph{Teaching Assistant} &\textsc{Digital System Prototyping Design}\\
+
+\textsc{Fall 2012 - Spring 2013} & \emph{Teaching Assistant} &\textsc{Digital System Prototyping Design}\\
+
+\end{tabular}
+\end{document}

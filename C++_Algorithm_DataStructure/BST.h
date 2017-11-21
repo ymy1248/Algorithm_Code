@@ -6,19 +6,6 @@ template <typename K, typename V>
 class BST;
 
 template <typename K, typename V>
-class Node {
-private:
-    Node *left;
-    Node *right;
-    K key;
-    V val;
-    Node(K key, V val):
-        key(key),
-        val(val){};
-    friend BST<K, V>;
-};
-
-template <typename K, typename V>
 class BST {
 public:
     void insert(K &key, V &val);
@@ -26,9 +13,18 @@ public:
     bool search(const K &key);
 
 private:
-    Node<K, V> *root;
-    Node<K, V>* delmin(Node<K, V> *&node);
-    void insert(Node<K, V> *&node, K &key, V &val);
+    struct Node {
+        Node *left;
+        Node *right;
+        K key;
+        V val;
+        Node(K key, V val):
+            key(key),
+            val(val){};
+    };
+    Node *root;
+    Node* delmin(Node *&node);
+    void insert(Node *&node, K &key, V &val);
 };
 
 template <typename K, typename V>
@@ -55,6 +51,4 @@ Node<K, V>* BST<K, V>::delmin(Node<K, V> *&node) {
 template <typename K, typename V>
 void BST<K, V>::del(const K &key){
 
-}
-int main(){
 }
