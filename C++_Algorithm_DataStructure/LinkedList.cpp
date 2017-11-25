@@ -6,9 +6,9 @@ LinkedList<V>& LinkedList<V>::add(V val) {
 }    
 
 template <typename V>
-V LinkedList<V>::del() {
+V LinkedList<V>::del() throw(string){
     if (empty()) {
-        return NULL;
+        throw "LinkedList is empty";
     }
 
     Node *p = _dummy;
@@ -17,27 +17,21 @@ V LinkedList<V>::del() {
     }
     V reg = p->next->val;
     delete p->next;
-    p->next = NULL;
+    p->next = nullptr;
     _last = p;
     return reg;
 }
 
 template <typename V>
 void LinkedList<V>::del(V val) {
-    Node *p = _dummy->next;
-    Node *last = _dummy;
-
-    while (p != NULL) {
-        if (p->val == val) {
-            last->next = p->next;
-            delete p;
-            p = last->next;
-            if (p == NULL) {
-                return;
-            }
+    Node **p = &_dummy->next;
+    
+    while (*p != nullptr) {
+        if ((*p)->val == val) {
+            *p = (*p)->next;
+        } else {
+            p = &((*p)->next);
         }
-        p = p->next;
-        last = last->next;
     }
 }
 
@@ -53,7 +47,7 @@ bool LinkedList<V>::empty() const {
 template <typename V>
 bool LinkedList<V>::contains(V val) {
     Node *p = _dummy->next;
-    while (p != NULL) {
+    while (p != nullptr) {
         if (p->val == val) {
             return true;
         }
@@ -81,7 +75,7 @@ void LinkedList<V>::show() const {
     cout << "[ ";
     if (!empty()) {
         Node *p = _dummy->next;
-        while (p->next != NULL) {
+        while (p->next != nullptr) {
             cout << p->val << " -> ";
             p = p->next;
         }
@@ -101,7 +95,7 @@ ostream & operator<<(ostream &os, LinkedList<V> &l) {
     os << "[ ";
     if (!l.empty()) {
         l._last = l._dummy->next;
-        while (l._last->next != NULL) {
+        while (l._last->next != nullptr) {
             cout << l._last->val << " -> ";
             l._last = l._last->next;
         }

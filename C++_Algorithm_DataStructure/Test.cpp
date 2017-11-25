@@ -33,7 +33,11 @@ void Test::testLinkedList() {
     list.show();
     list.add(8).add(1);
     list.show();
-    list.del();
+    try {
+        list.del();
+    } catch (string& s) {
+        cout << s << endl;
+    }
     list.show();
     list.add(10);
     list.del(8);
@@ -41,8 +45,21 @@ void Test::testLinkedList() {
     cout << list;
 }
 
+void Test::testBST() {
+    BST<int, string> bst;
+    bst.add(0, "0");
+    bst.add(10, "10");
+    bst.add(-1, "-1");
+    bst.add(9, "9");
+    cout << bst.contains(0) << endl;
+    cout << "bst.contains(9): " << bst.contains(9) << endl;
+    cout << "delete 9" << endl;
+    bst.del(9);
+    cout << "bst.contains(9): " << bst.contains(9) << endl;
+}
+
 
 int main () {
-    Test::testLinkedList();
+    Test::testBST();
     return 0;
 }

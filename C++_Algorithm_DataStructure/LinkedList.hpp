@@ -9,9 +9,9 @@ namespace ymy1248{
 template <typename V>
 class LinkedList {
 public:
-    LinkedList() : _dummy(new Node(NULL)), _last(_dummy){};
+    LinkedList() : _dummy(new Node(0)), _last(_dummy){};
     LinkedList<V> &add(V val);
-    V del();
+    V del() throw(string);
     void del(V val);
     bool empty() const;
     bool contains(V val);
@@ -25,7 +25,7 @@ private:
     struct Node {
         V val;
         Node *next;
-        Node(V v): val(v), next(NULL){};
+        Node(V v): val(v), next(nullptr){};
     };
     Node *_dummy, *_last;
 };

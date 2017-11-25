@@ -1,6 +1,7 @@
 #include "Show.h" 
 #include "Sort.h"
 #include "LinkedList.hpp"
+#include "BST.hpp"
 
 namespace ymy1248 {
 class Test {
