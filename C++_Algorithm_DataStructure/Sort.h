@@ -1,6 +1,9 @@
 /**
  * @author: ymy1248
  */
+
+#ifndef SORT_H_
+#define SORT_H_
 #include <vector>
 #include "consts.h"
 
@@ -61,3 +64,5 @@ private:
     }
 };
 }
+
+#endif

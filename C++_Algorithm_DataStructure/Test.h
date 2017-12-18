@@ -2,6 +2,7 @@
 #include "Sort.h"
 #include "LinkedList.hpp"
 #include "BST.hpp"
+#include "Deque.hpp"
 
 namespace ymy1248 {
 class Test {
@@ -11,5 +12,6 @@ public:
     static void testQuickSort();
     static void testLinkedList();
     static void testBST();
+    static void testDeque();
 };
 }

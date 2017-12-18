@@ -30,9 +30,9 @@ void Test::testLinkedList() {
     list.clear();
     list.add(4);
     list.add(6);
-    list.show();
+    cout << list;
     list.add(8).add(1);
-    list.show();
+    cout << list;
     try {
         list.del();
     } catch (string& s) {
@@ -47,17 +47,32 @@ void Test::testLinkedList() {
 
 void Test::testBST() {
     BST<int, string> bst;
-    bst.add(0, "0");
-    bst.add(10, "10");
-    bst.add(-1, "-1");
-    bst.add(9, "9");
-    cout << bst.contains(0) << endl;
-    cout << "bst.contains(9): " << bst.contains(9) << endl;
-    cout << "delete 9" << endl;
-    bst.del(9);
-    cout << "bst.contains(9): " << bst.contains(9) << endl;
+    bst.add(5, "5").add(1, "1").add(9, "9");
+    bst.add(6, "6").add(7, "7").add(8,"8").add(3,"3").add(2,"2");
+    bst.add(19, "19").add(100, "100");
+    cout << bst;
 }
 
+void Test::testDeque() {
+    Deque<int> dq;
+    dq.push_back(1);
+    dq.push_back(2);
+    dq.push_back(3);
+    dq.push_back(4);
+    dq.push_back(5);
+    dq.push_back(6);
+    dq.push_back(7);
+    cout << dq;
+    dq.pop_back();
+    cout << "dq.pop_back();" << endl;
+    cout << dq;
+    dq.pop_front();
+    cout << "dq.pop_front();" << endl;
+    cout << dq;
+    dq.push_front(-1);
+    cout << "dq.push_front(-1);" << endl;
+    cout << dq;
+}
 
 int main () {
     Test::testBST();

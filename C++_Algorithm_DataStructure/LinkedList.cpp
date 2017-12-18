@@ -1,3 +1,7 @@
+#include "LinkedList.hpp"
+
+using namespace ymy1248;
+
 template <typename V>
 LinkedList<V>& LinkedList<V>::add(V val) {
     _last->next = new Node(val);

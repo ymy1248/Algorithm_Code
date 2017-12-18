@@ -19,7 +19,7 @@ public:
     void show() const;
     virtual ~LinkedList();
     template <typename T>
-    friend ostream & operator<<(ostream &os, LinkedList<T> &l);
+    friend ostream& operator<<(ostream &os, LinkedList<T> &l);
 
 private:
     struct Node {

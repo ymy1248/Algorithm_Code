@@ -1,30 +1,36 @@
 #include "template.h"
-
-class Solution {
-public:
-    bool isHappy(int n) {
-        unordered_set<unsigned long> _set;
-        unsigned long num = n;
-        
-        while (_set.find(num) == _set.end()) {
-            _set.insert(num);
-            cout << num << endl;
-            unsigned long next = 0;
-            while (num != 0) {
-                unsigned long re = num % 10;
-                next += re * re;
-                num /= 10;
-            }
-            if (next == 1) {
-                return true;
-            }
-            num = next;
-        }
-        return false;
-    }
-};
-
 int main() {
-    Solution s;
-    cout << s.isHappy(5) << endl;
+    int row;
+    cin >> row;
+    
+    int level = 1;
+    for (int i = 0; i < row - 1; ++i) {
+        level += 2;
+    }
+    int mid = level / 2;
+
+    for (int i = 0; i < row; ++i) {
+        for (int j = 0; j < level; ++j) {
+            if (j >= mid - i && j <= mid + i) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+
+    cout << endl;
+    for (int i = row - 1; i >= 0; --i) {
+        for (int j = 0; j < level; ++j) {
+            if (j >= mid - i && j <= mid + i) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+    return 0;
+
 }
